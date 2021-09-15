@@ -37,6 +37,7 @@ metadata:
     app.openshift.io/runtime: js
   name: next-sample-app
 spec:
+  replicas: 1 
   progressDeadlineSeconds: 600
   revisionHistoryLimit: 10
   selector:
