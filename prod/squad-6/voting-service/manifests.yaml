@@ -1,0 +1,98 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: 40f6c3e7b4e672f18c72f4eeebf0c11ad5e5d220
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/apac-4-squad-6-backend
+  labels:
+    app: squad-6
+    app.kubernetes.io/instance: squad-6
+    app.kubernetes.io/name: squad-6-voting-service
+    app.openshift.io/runtime: js
+  name: voting-service
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 4000
+  selector:
+    app: squad-6
+    app.kubernetes.io/instance: squad-6
+    app.kubernetes.io/name: squad-6-voting-service
+    app.openshift.io/runtime: js
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: 40f6c3e7b4e672f18c72f4eeebf0c11ad5e5d220
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/apac-4-squad-6-backend
+  labels:
+    app: squad-6
+    app.kubernetes.io/instance: squad-6
+    app.kubernetes.io/name: squad-6-voting-service
+    app.openshift.io/runtime: js
+  name: voting-service
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: squad-6
+      app.kubernetes.io/instance: squad-6
+      app.kubernetes.io/name: squad-6-voting-service
+      app.openshift.io/runtime: js
+  template:
+    metadata:
+      annotations:
+        app.openshift.io/vcs-ref: 40f6c3e7b4e672f18c72f4eeebf0c11ad5e5d220
+        app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/apac-4-squad-6-backend
+      labels:
+        app: squad-6
+        app.kubernetes.io/instance: squad-6
+        app.kubernetes.io/name: squad-6-voting-service
+        app.openshift.io/runtime: js
+    spec:
+      containers:
+      - env:
+        - name: INGRESS_HOST
+        - name: PROTOCOLS
+        - name: LOG_LEVEL
+          value: debug
+        image: quay.io/dineshbarai/squad-6-backend:40f6c3e7b4e672f18c72f4eeebf0c11ad5e5d220
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /health-check
+            port: 4000
+            scheme: HTTP
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: voting-service
+        ports:
+        - containerPort: 4000
+          name: http
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: http
+            scheme: HTTP
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
