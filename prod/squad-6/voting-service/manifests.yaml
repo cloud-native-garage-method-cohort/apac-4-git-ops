@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 40f6c3e7b4e672f18c72f4eeebf0c11ad5e5d220
+    app.openshift.io/vcs-ref: a895b47925be27f1c148229741cc227cffd23193
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/apac-4-squad-6-backend
   labels:
     app: squad-6
@@ -28,7 +28,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 40f6c3e7b4e672f18c72f4eeebf0c11ad5e5d220
+    app.openshift.io/vcs-ref: a895b47925be27f1c148229741cc227cffd23193
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/apac-4-squad-6-backend
   labels:
     app: squad-6
@@ -49,7 +49,7 @@ spec:
   template:
     metadata:
       annotations:
-        app.openshift.io/vcs-ref: 40f6c3e7b4e672f18c72f4eeebf0c11ad5e5d220
+        app.openshift.io/vcs-ref: a895b47925be27f1c148229741cc227cffd23193
         app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/apac-4-squad-6-backend
       labels:
         app: squad-6
@@ -63,7 +63,7 @@ spec:
         - name: PROTOCOLS
         - name: LOG_LEVEL
           value: debug
-        image: quay.io/dineshbarai/squad-6-backend:40f6c3e7b4e672f18c72f4eeebf0c11ad5e5d220
+        image: quay.io/dineshbarai/squad-6-backend:a895b47925be27f1c148229741cc227cffd23193
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
