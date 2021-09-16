@@ -2,14 +2,14 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: bddfb9aafaa672481491d306b5fb76eedb879a96
-    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/Jianping-Shu-buildah-assignment
+    app.openshift.io/vcs-ref: 4cea9ec6c42495aa0baee5e9536914d6922eced8
+    app.openshift.io/vcs-uri: https://github.com/rainshuzi/jianping-shu-tekton-next-js
   labels:
     app: tekton-squad-1-project
     app.kubernetes.io/instance: tekton-squad-1-project
     app.kubernetes.io/name: tekton-squad-1-project-next-js-app
     app.openshift.io/runtime: js
-  name: express-sample-app
+  name: jianping-shu-next-js-app
 spec:
   ports:
   - name: http
@@ -28,14 +28,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: bddfb9aafaa672481491d306b5fb76eedb879a96
-    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/Jianping-Shu-buildah-assignment
+    app.openshift.io/vcs-ref: 4cea9ec6c42495aa0baee5e9536914d6922eced8
+    app.openshift.io/vcs-uri: https://github.com/rainshuzi/jianping-shu-tekton-next-js
   labels:
     app: tekton-squad-1-project
     app.kubernetes.io/instance: tekton-squad-1-project
     app.kubernetes.io/name: tekton-squad-1-project-next-js-app
     app.openshift.io/runtime: js
-  name: express-sample-app
+  name: jianping-shu-next-js-app
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -49,8 +49,8 @@ spec:
   template:
     metadata:
       annotations:
-        app.openshift.io/vcs-ref: bddfb9aafaa672481491d306b5fb76eedb879a96
-        app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/Jianping-Shu-buildah-assignment
+        app.openshift.io/vcs-ref: 4cea9ec6c42495aa0baee5e9536914d6922eced8
+        app.openshift.io/vcs-uri: https://github.com/rainshuzi/jianping-shu-tekton-next-js
       labels:
         app: tekton-squad-1-project
         app.kubernetes.io/instance: tekton-squad-1-project
@@ -63,7 +63,7 @@ spec:
         - name: PROTOCOLS
         - name: LOG_LEVEL
           value: debug
-        image: quay.io/jian_ping_shu/next_js:bddfb9aafaa672481491d306b5fb76eedb879a96
+        image: quay.io/jian_ping_shu/next_js:4cea9ec6c42495aa0baee5e9536914d6922eced8
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
@@ -101,8 +101,8 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: bddfb9aafaa672481491d306b5fb76eedb879a96
-    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/Jianping-Shu-buildah-assignment
+    app.openshift.io/vcs-ref: 4cea9ec6c42495aa0baee5e9536914d6922eced8
+    app.openshift.io/vcs-uri: https://github.com/rainshuzi/jianping-shu-tekton-next-js
     argocd.argoproj.io/sync-options: Validate=false
     openshift.io/host.generated: "true"
   labels:
@@ -110,12 +110,12 @@ metadata:
     app.kubernetes.io/instance: tekton-squad-1-project
     app.kubernetes.io/name: tekton-squad-1-project-next-js-app
     app.openshift.io/runtime: js
-  name: express-sample-app
+  name: jianping-shu-next-js-app
 spec:
   tls:
     termination: edge
   to:
     kind: Service
-    name: express-sample-app
+    name: jianping-shu-next-js-app
     weight: 100
   wildcardPolicy: None
