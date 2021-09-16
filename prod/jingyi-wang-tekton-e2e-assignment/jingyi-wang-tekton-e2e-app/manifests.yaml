@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 17ff4bc3f5edc3d1a774a437a6950171b34ede83
-    app.openshift.io/vcs-uri: http://gogs-tools.ibmcloud-roks-e60v65ka-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-tok.containers.appdomain.cloud/toolkit/jingyi-wang-tekton-e2e-app
+    app.openshift.io/vcs-ref: d54db38a9326de92985fde1222dbba2e34a83ed7
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/jingyi-wang-tekton-e2e-app
   labels:
     app: jingyi-wang-tekton-e2e-assignment
     app.kubernetes.io/instance: jingyi-wang-tekton-e2e-assignment
@@ -28,8 +28,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 17ff4bc3f5edc3d1a774a437a6950171b34ede83
-    app.openshift.io/vcs-uri: http://gogs-tools.ibmcloud-roks-e60v65ka-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-tok.containers.appdomain.cloud/toolkit/jingyi-wang-tekton-e2e-app
+    app.openshift.io/vcs-ref: d54db38a9326de92985fde1222dbba2e34a83ed7
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/jingyi-wang-tekton-e2e-app
   labels:
     app: jingyi-wang-tekton-e2e-assignment
     app.kubernetes.io/instance: jingyi-wang-tekton-e2e-assignment
@@ -49,8 +49,8 @@ spec:
   template:
     metadata:
       annotations:
-        app.openshift.io/vcs-ref: 17ff4bc3f5edc3d1a774a437a6950171b34ede83
-        app.openshift.io/vcs-uri: http://gogs-tools.ibmcloud-roks-e60v65ka-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-tok.containers.appdomain.cloud/toolkit/jingyi-wang-tekton-e2e-app
+        app.openshift.io/vcs-ref: d54db38a9326de92985fde1222dbba2e34a83ed7
+        app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/jingyi-wang-tekton-e2e-app
       labels:
         app: jingyi-wang-tekton-e2e-assignment
         app.kubernetes.io/instance: jingyi-wang-tekton-e2e-assignment
@@ -63,7 +63,7 @@ spec:
         - name: PROTOCOLS
         - name: LOG_LEVEL
           value: debug
-        image: quay.io/wangjingyi_ibm/tekton-e2e-app:17ff4bc3f5edc3d1a774a437a6950171b34ede83
+        image: quay.io/wangjingyi_ibm/tekton-e2e-app:d54db38a9326de92985fde1222dbba2e34a83ed7
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
@@ -101,8 +101,8 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 17ff4bc3f5edc3d1a774a437a6950171b34ede83
-    app.openshift.io/vcs-uri: http://gogs-tools.ibmcloud-roks-e60v65ka-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-tok.containers.appdomain.cloud/toolkit/jingyi-wang-tekton-e2e-app
+    app.openshift.io/vcs-ref: d54db38a9326de92985fde1222dbba2e34a83ed7
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/jingyi-wang-tekton-e2e-app
     argocd.argoproj.io/sync-options: Validate=false
     openshift.io/host.generated: "true"
   labels:
