@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 9ca7d8f0a1304d77d929b71da0ab6ff48cffe183
+    app.openshift.io/vcs-ref: 9b3fe7570242b6ed81f1f02482ca04902fce0f03
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/node-app
     kompose.cmd: /usr/local/bin/kompose convert -o k8s
     kompose.version: 1.24.0 (HEAD)
@@ -31,7 +31,7 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 9ca7d8f0a1304d77d929b71da0ab6ff48cffe183
+    app.openshift.io/vcs-ref: 9b3fe7570242b6ed81f1f02482ca04902fce0f03
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/node-app
     kompose.cmd: /usr/local/bin/kompose convert -o k8s
     kompose.version: 1.24.0 (HEAD)
@@ -60,7 +60,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 9ca7d8f0a1304d77d929b71da0ab6ff48cffe183
+    app.openshift.io/vcs-ref: 9b3fe7570242b6ed81f1f02482ca04902fce0f03
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/node-app
   creationTimestamp: null
   labels:
@@ -81,7 +81,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 9ca7d8f0a1304d77d929b71da0ab6ff48cffe183
+    app.openshift.io/vcs-ref: 9b3fe7570242b6ed81f1f02482ca04902fce0f03
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/node-app
   creationTimestamp: null
   labels:
@@ -102,7 +102,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 9ca7d8f0a1304d77d929b71da0ab6ff48cffe183
+    app.openshift.io/vcs-ref: 9b3fe7570242b6ed81f1f02482ca04902fce0f03
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/node-app
   creationTimestamp: null
   labels:
@@ -123,7 +123,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 9ca7d8f0a1304d77d929b71da0ab6ff48cffe183
+    app.openshift.io/vcs-ref: 9b3fe7570242b6ed81f1f02482ca04902fce0f03
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/node-app
   creationTimestamp: null
   labels:
@@ -144,7 +144,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 9ca7d8f0a1304d77d929b71da0ab6ff48cffe183
+    app.openshift.io/vcs-ref: 9b3fe7570242b6ed81f1f02482ca04902fce0f03
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/node-app
   creationTimestamp: null
   labels:
@@ -165,72 +165,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 9ca7d8f0a1304d77d929b71da0ab6ff48cffe183
-    app.openshift.io/vcs-uri: https://github.com/rainshuzi/node-app
-    kompose.cmd: /usr/local/bin/kompose convert -o k8s
-    kompose.version: 1.24.0 (HEAD)
-  creationTimestamp: null
-  labels:
-    app: tekton-squad-1-project
-    app.kubernetes.io/instance: tekton-squad-1-project
-    app.kubernetes.io/name: tekton-squad-1-project-node-app
-    io.kompose.service: mysql-db
-  name: mysql-db
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: tekton-squad-1-project
-      app.kubernetes.io/instance: tekton-squad-1-project
-      app.kubernetes.io/name: tekton-squad-1-project-node-app
-      io.kompose.service: mysql-db
-  strategy:
-    type: Recreate
-  template:
-    metadata:
-      annotations:
-        app.openshift.io/vcs-ref: 9ca7d8f0a1304d77d929b71da0ab6ff48cffe183
-        app.openshift.io/vcs-uri: https://github.com/rainshuzi/node-app
-        kompose.cmd: /usr/local/bin/kompose convert -o k8s
-        kompose.version: 1.24.0 (HEAD)
-      creationTimestamp: null
-      labels:
-        app: tekton-squad-1-project
-        app.kubernetes.io/instance: tekton-squad-1-project
-        app.kubernetes.io/name: tekton-squad-1-project-node-app
-        io.kompose.network/boilerplate-network: "true"
-        io.kompose.service: mysql-db
-    spec:
-      containers:
-      - env:
-        - name: MYSQL_DATABASE
-          value: boilerplate_db
-        - name: MYSQL_PASSWORD
-          value: dbuserpwd
-        - name: MYSQL_ROOT_PASSWORD
-          value: root
-        - name: MYSQL_USER
-          value: dbuser
-        image: quay.io/jian_ping_shu/next_js:9ca7d8f0a1304d77d929b71da0ab6ff48cffe183
-        name: mysql-db
-        ports:
-        - containerPort: 3306
-        resources: {}
-        volumeMounts:
-        - mountPath: /var/lib/mysql
-          name: db-data
-      restartPolicy: Always
-      volumes:
-      - name: db-data
-        persistentVolumeClaim:
-          claimName: db-data
-status: {}
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  annotations:
-    app.openshift.io/vcs-ref: 9ca7d8f0a1304d77d929b71da0ab6ff48cffe183
+    app.openshift.io/vcs-ref: 9b3fe7570242b6ed81f1f02482ca04902fce0f03
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/node-app
     kompose.cmd: /usr/local/bin/kompose convert -o k8s
     kompose.version: 1.24.0 (HEAD)
@@ -254,7 +189,7 @@ spec:
   template:
     metadata:
       annotations:
-        app.openshift.io/vcs-ref: 9ca7d8f0a1304d77d929b71da0ab6ff48cffe183
+        app.openshift.io/vcs-ref: 9b3fe7570242b6ed81f1f02482ca04902fce0f03
         app.openshift.io/vcs-uri: https://github.com/rainshuzi/node-app
         kompose.cmd: /usr/local/bin/kompose convert -o k8s
         kompose.version: 1.24.0 (HEAD)
@@ -267,7 +202,7 @@ spec:
         io.kompose.service: node-app
     spec:
       containers:
-      - image: quay.io/jian_ping_shu/next_js:9ca7d8f0a1304d77d929b71da0ab6ff48cffe183
+      - image: quay.io/jian_ping_shu/next_js:9b3fe7570242b6ed81f1f02482ca04902fce0f03
         name: node-app
         ports:
         - containerPort: 5000
@@ -292,7 +227,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 9ca7d8f0a1304d77d929b71da0ab6ff48cffe183
+    app.openshift.io/vcs-ref: 9b3fe7570242b6ed81f1f02482ca04902fce0f03
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/node-app
   creationTimestamp: null
   labels:
