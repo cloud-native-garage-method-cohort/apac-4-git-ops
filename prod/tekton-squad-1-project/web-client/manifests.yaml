@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 21443c0a0b5823fcf1ad21859f5eb2658146223c
+    app.openshift.io/vcs-ref: 4877005032ac2bb7e85ed148960dfa915fdcdf06
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/web-client
     kompose.cmd: /usr/local/bin/kompose convert -o k8s
     kompose.version: 1.24.0 (HEAD)
@@ -31,7 +31,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 21443c0a0b5823fcf1ad21859f5eb2658146223c
+    app.openshift.io/vcs-ref: 4877005032ac2bb7e85ed148960dfa915fdcdf06
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/web-client
   creationTimestamp: null
   labels:
@@ -52,7 +52,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 21443c0a0b5823fcf1ad21859f5eb2658146223c
+    app.openshift.io/vcs-ref: 4877005032ac2bb7e85ed148960dfa915fdcdf06
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/web-client
   creationTimestamp: null
   labels:
@@ -73,7 +73,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 21443c0a0b5823fcf1ad21859f5eb2658146223c
+    app.openshift.io/vcs-ref: 4877005032ac2bb7e85ed148960dfa915fdcdf06
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/web-client
   creationTimestamp: null
   labels:
@@ -94,7 +94,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 21443c0a0b5823fcf1ad21859f5eb2658146223c
+    app.openshift.io/vcs-ref: 4877005032ac2bb7e85ed148960dfa915fdcdf06
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/web-client
   creationTimestamp: null
   labels:
@@ -115,7 +115,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 21443c0a0b5823fcf1ad21859f5eb2658146223c
+    app.openshift.io/vcs-ref: 4877005032ac2bb7e85ed148960dfa915fdcdf06
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/web-client
     kompose.cmd: /usr/local/bin/kompose convert -o k8s
     kompose.version: 1.24.0 (HEAD)
@@ -139,7 +139,7 @@ spec:
   template:
     metadata:
       annotations:
-        app.openshift.io/vcs-ref: 21443c0a0b5823fcf1ad21859f5eb2658146223c
+        app.openshift.io/vcs-ref: 4877005032ac2bb7e85ed148960dfa915fdcdf06
         app.openshift.io/vcs-uri: https://github.com/rainshuzi/web-client
         kompose.cmd: /usr/local/bin/kompose convert -o k8s
         kompose.version: 1.24.0 (HEAD)
@@ -152,7 +152,7 @@ spec:
         io.kompose.service: web-client
     spec:
       containers:
-      - image: quay.io/jian_ping_shu/next_js:21443c0a0b5823fcf1ad21859f5eb2658146223c
+      - image: quay.io/jian_ping_shu/next_js:4877005032ac2bb7e85ed148960dfa915fdcdf06
         name: web-client
         ports:
         - containerPort: 3000
@@ -177,7 +177,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 21443c0a0b5823fcf1ad21859f5eb2658146223c
+    app.openshift.io/vcs-ref: 4877005032ac2bb7e85ed148960dfa915fdcdf06
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/web-client
   creationTimestamp: null
   labels:
