@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 4877005032ac2bb7e85ed148960dfa915fdcdf06
+    app.openshift.io/vcs-ref: ff33a80e57dc4d8aaacc512cee33b654a0256287
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/web-client
     kompose.cmd: /usr/local/bin/kompose convert -o k8s
     kompose.version: 1.24.0 (HEAD)
@@ -31,7 +31,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 4877005032ac2bb7e85ed148960dfa915fdcdf06
+    app.openshift.io/vcs-ref: ff33a80e57dc4d8aaacc512cee33b654a0256287
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/web-client
   creationTimestamp: null
   labels:
@@ -52,7 +52,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 4877005032ac2bb7e85ed148960dfa915fdcdf06
+    app.openshift.io/vcs-ref: ff33a80e57dc4d8aaacc512cee33b654a0256287
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/web-client
   creationTimestamp: null
   labels:
@@ -73,7 +73,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 4877005032ac2bb7e85ed148960dfa915fdcdf06
+    app.openshift.io/vcs-ref: ff33a80e57dc4d8aaacc512cee33b654a0256287
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/web-client
   creationTimestamp: null
   labels:
@@ -94,7 +94,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 4877005032ac2bb7e85ed148960dfa915fdcdf06
+    app.openshift.io/vcs-ref: ff33a80e57dc4d8aaacc512cee33b654a0256287
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/web-client
   creationTimestamp: null
   labels:
@@ -115,7 +115,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 4877005032ac2bb7e85ed148960dfa915fdcdf06
+    app.openshift.io/vcs-ref: ff33a80e57dc4d8aaacc512cee33b654a0256287
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/web-client
     kompose.cmd: /usr/local/bin/kompose convert -o k8s
     kompose.version: 1.24.0 (HEAD)
@@ -139,7 +139,7 @@ spec:
   template:
     metadata:
       annotations:
-        app.openshift.io/vcs-ref: 4877005032ac2bb7e85ed148960dfa915fdcdf06
+        app.openshift.io/vcs-ref: ff33a80e57dc4d8aaacc512cee33b654a0256287
         app.openshift.io/vcs-uri: https://github.com/rainshuzi/web-client
         kompose.cmd: /usr/local/bin/kompose convert -o k8s
         kompose.version: 1.24.0 (HEAD)
@@ -152,7 +152,7 @@ spec:
         io.kompose.service: web-client
     spec:
       containers:
-      - image: quay.io/jian_ping_shu/next_js:4877005032ac2bb7e85ed148960dfa915fdcdf06
+      - image: quay.io/jian_ping_shu/next_js:ff33a80e57dc4d8aaacc512cee33b654a0256287
         name: web-client
         ports:
         - containerPort: 3000
@@ -177,7 +177,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: 4877005032ac2bb7e85ed148960dfa915fdcdf06
+    app.openshift.io/vcs-ref: ff33a80e57dc4d8aaacc512cee33b654a0256287
     app.openshift.io/vcs-uri: https://github.com/rainshuzi/web-client
   creationTimestamp: null
   labels:
@@ -200,3 +200,26 @@ spec:
       app.kubernetes.io/instance: tekton-squad-1-project
       app.kubernetes.io/name: tekton-squad-1-project-web-client
       io.kompose.network/boilerplate-network: "true"
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: ff33a80e57dc4d8aaacc512cee33b654a0256287
+    app.openshift.io/vcs-uri: https://github.com/rainshuzi/web-client
+    argocd.argoproj.io/sync-options: Validate=false
+    openshift.io/host.generated: "true"
+  labels:
+    app: tekton-squad-1-project
+    app.kubernetes.io/instance: tekton-squad-1-project
+    app.kubernetes.io/name: tekton-squad-1-project-web-client
+    io.kompose.service: web-client
+  name: web-client
+spec:
+  tls:
+    termination: edge
+  to:
+    kind: Service
+    name: web-client
+    weight: 100
+  wildcardPolicy: None
